@@ -1,7 +1,19 @@
 pipeline {
     agent any
 
+    tools {
+        maven 'Maven 3.8.5' 
+    }
+
     stages {
+        stage('Build Project') {
+            steps {
+                script {
+                    sh 'mvn clean package -DskipTests'
+                }
+            }
+        }
+        
         stage('Build Docker Image') {
             steps {
                 script {
