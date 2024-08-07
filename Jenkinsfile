@@ -4,10 +4,11 @@ pipeline {
 
     stages {
         stage('Build Project') {
+            agent {
+                docker {image 'maven'}
+            }
             steps {
-                withMaven {
-                    sh 'mvn clean package -DskipTests'
-                }
+                sh 'mvn clean package -DskipTests'
             }
         }
         
