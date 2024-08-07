@@ -1,5 +1,5 @@
 # Etapa 1: Construir o JAR usando Maven
-FROM maven:3.8.6-openjdk-21 AS build
+FROM maven:3.9.8 AS build
 WORKDIR /app
 COPY . .
 RUN mvn clean package -DskipTests
